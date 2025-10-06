@@ -1,5 +1,12 @@
-# MeetingSphere-HackathonProject-
-MeetingSphere a web app to tranform normal meeting to well structured and documented meeting 
+# 🧩 MeetingSphere – Hackathon Project
+
+**MeetingSphere** is a web application designed to transform ordinary meetings into **well-structured, documented, and actionable sessions**.
+
+---
+
+## 📘 Project Structure
+
+
 
 MyHackathonProject/
 │
@@ -35,3 +42,40 @@ MyHackathonProject/
 ├── .gitignore
 ├── README.md                 # Main README (project overview)
 └── LICENSE                   # Optional but professional
+
+
+---
+
+## 🚀 Tech Stack
+
+| Layer | Technology |
+|-------|-------------|
+| **Frontend** | Angular 20, TypeScript, Bootstrap 5 |
+| **Backend** | ASP.NET Core Web API |
+| **Database** | SQL Server (Entity Framework Core) |
+| **Version Control** | Git & GitHub |
+| **IDE** | Visual Studio, VS Code |
+
+---
+
+## 🧠 Key Features
+- 🗂️ Dynamic meeting documentation structure  
+- 🧾 Automatic note organization  
+- 👥 User role-based meeting management  
+- 📈 Visual dashboards for progress tracking  
+- 🧩 Modular architecture for scalability  
+
+---
+
+## 🧰 Setup Instructions
+
+### 🔹 Prerequisites
+- Node.js ≥ 20  
+- Angular CLI ≥ 20  
+- .NET SDK ≥ 8  
+- SQL Server  
+
+### 🔹 Steps
+1. Clone this repository  
+   ```bash
+   git clone https://github.com/kashyap369/MeetingSphere-HackathonProject-.git
