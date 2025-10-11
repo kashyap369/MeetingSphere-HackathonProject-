@@ -1,1 +1,13 @@
 /* You can add global styles to this file, and also import other style files */
+.text-primary-c{
+    color:#6A44F7;
+}
+.text-primary-dark{
+    color: #0F1729;
+}
+.bg-snow{
+    background-color: #FBFBFC;
+}
+.footerGradient{
+    background: linear-gradient(135deg, #7a49ff, #9b6bff);
+}
