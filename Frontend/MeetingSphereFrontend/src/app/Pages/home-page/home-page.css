@@ -1,0 +1,55 @@
+/* Theme Colors */
+:root {
+  --theme-purple: #9333ea;
+  --theme-light-purple: #f5e8ff;
+}
+
+/* Text utilities */
+.text-theme {
+  color: var(--theme-purple) !important;
+}
+
+/* Cards */
+.stat-card {
+  border-radius: 12px;
+}
+
+.stat-card .icon-box {
+  width: 42px;
+  height: 42px;
+  background-color: var(--theme-light-purple);
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.table-card {
+  border-radius: 12px;
+}
+
+/* Table */
+.table-header {
+  background-color: #f7efff;
+}
+
+.table th,
+.table td {
+  vertical-align: middle;
+}
+
+.table tbody tr:hover {
+  background-color: #faf5ff;
+}
+
+/* Typography adjustments */
+.card-body h6 {
+  letter-spacing: 0.5px;
+}
+
+/* Responsive behavior */
+@media (max-width: 768px) {
+  .card-body h2 {
+    font-size: 1.5rem;
+  }
+}

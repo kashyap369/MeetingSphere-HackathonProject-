@@ -1,0 +1,27 @@
+.nav-pills .nav-link.active {
+  background-color: #9333ea !important;
+  color: #fff !important;
+  box-shadow: 0 2px 8px rgba(147, 51, 234, 0.25);
+  border-radius: 12px;
+}
+
+.nav-pills .nav-link {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  transition: background-color 0.2s ease-in-out, color 0.2s ease-in-out;
+  border-radius: 12px;
+}
+
+/* Smooth hover for non-active links */
+.nav-pills .nav-link:not(.active):hover {
+  background-color: rgba(147, 51, 234, 0.08);
+  color: #9333ea !important;
+}
+
+/* Responsive: center tabs on small screens */
+@media (max-width: 768px) {
+  .nav {
+    justify-content: center !important;
+  }
+}

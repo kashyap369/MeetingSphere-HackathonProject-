@@ -11,3 +11,6 @@
 .footerGradient{
     background: linear-gradient(135deg, #7a49ff, #9b6bff);
 }
+.pointer{
+    cursor: pointer;
+}
