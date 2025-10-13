@@ -1,1 +1,109 @@
-<p>notes works!</p>
+<div class="container py-4">
+  <div class="row">
+    <!-- Centered content column (keeps header, search, cards aligned) -->
+    <div class="col-12 col-xl-10 mx-auto">
+
+      <!-- Header -->
+      <div class="mb-4">
+        <h2 class="fw-bold mb-1">Meeting Notes</h2>
+        <span class="text-muted fs-5 fw-semibold">Search and review notes from all meetings</span>
+      </div>
+
+      <!-- Search Bar (left-aligned inside same centered column) -->
+      <div class="mb-4">
+        <div class="input-group shadow-sm rounded-3 d-inline-flex" style="width: 520px; max-width:100%;">
+          <span class="input-group-text bg-white border-0">
+            <i class="bi bi-search text-muted"></i>
+          </span>
+          <input
+            type="text"
+            class="form-control border-0"
+            placeholder="Search notes..."
+            aria-label="Search notes"
+          />
+        </div>
+      </div>
+
+      <!-- Notes list (cards) -->
+      <div class="row gy-4">
+        <!-- Card 1 -->
+        <div class="col-12">
+          <div class="card border-0 rounded-4 shadow-sm p-4">
+            <h5 class="fw-semibold mb-2">Q4 Budget Review</h5>
+
+            <div class="d-flex flex-wrap align-items-center text-muted small gap-3 mb-2">
+              <span class="d-flex align-items-center"><i class="bi bi-calendar me-2"></i>Oct 8, 2025</span>
+              <span class="d-flex align-items-center"><i class="bi bi-person me-2"></i>Sarah</span>
+            </div>
+
+            <div class="d-flex flex-wrap gap-2 mb-3">
+              <span class="badge rounded-pill text-dark px-3 py-2"
+                style="background-color: #f3e8ff; color: #7e22ce;">Budget</span>
+              <span class="badge rounded-pill text-dark px-3 py-2"
+                style="background-color: #f3e8ff; color: #7e22ce;">Planning</span>
+              <span class="badge rounded-pill text-dark px-3 py-2"
+                style="background-color: #f3e8ff; color: #7e22ce;">Action Required</span>
+            </div>
+
+            <p class="mb-0 text-secondary">
+              Discussed budget allocation for Q4. Key points: 40% engineering, 30% marketing, 20% operations, 10%
+              contingency. Action items: Review vendor contracts by Oct 15.
+            </p>
+          </div>
+        </div>
+
+        <!-- Card 2 -->
+        <div class="col-12">
+          <div class="card border-0 rounded-4 shadow-sm p-4">
+            <h5 class="fw-semibold mb-2">Product Roadmap Discussion</h5>
+
+            <div class="d-flex flex-wrap align-items-center text-muted small gap-3 mb-2">
+              <span class="d-flex align-items-center"><i class="bi bi-calendar me-2"></i>Oct 5, 2025</span>
+              <span class="d-flex align-items-center"><i class="bi bi-person me-2"></i>David</span>
+            </div>
+
+            <div class="d-flex flex-wrap gap-2 mb-3">
+              <span class="badge rounded-pill text-dark px-3 py-2"
+                style="background-color: #f3e8ff; color: #7e22ce;">Product</span>
+              <span class="badge rounded-pill text-dark px-3 py-2"
+                style="background-color: #f3e8ff; color: #7e22ce;">Roadmap</span>
+              <span class="badge rounded-pill text-dark px-3 py-2"
+                style="background-color: #f3e8ff; color: #7e22ce;">Features</span>
+            </div>
+
+            <p class="mb-0 text-secondary">
+              New features planned: AI-powered meeting summaries, real-time collaboration tools, and enhanced security
+              features. Timeline: Q1 2026 launch. Need to align with engineering team.
+            </p>
+          </div>
+        </div>
+
+        <!-- Card 3 (optional example) -->
+        <div class="col-12">
+          <div class="card border-0 rounded-4 shadow-sm p-4">
+            <h5 class="fw-semibold mb-2">Security Audit Meeting</h5>
+
+            <div class="d-flex flex-wrap align-items-center text-muted small gap-3 mb-2">
+              <span class="d-flex align-items-center"><i class="bi bi-calendar me-2"></i>Jul 12, 2025</span>
+              <span class="d-flex align-items-center"><i class="bi bi-person me-2"></i>Lucas</span>
+            </div>
+
+            <div class="d-flex flex-wrap gap-2 mb-3">
+              <span class="badge rounded-pill text-dark px-3 py-2"
+                style="background-color: #f3e8ff; color: #7e22ce;">Security</span>
+              <span class="badge rounded-pill text-dark px-3 py-2"
+                style="background-color: #f3e8ff; color: #7e22ce;">Audit</span>
+            </div>
+
+            <p class="mb-0 text-secondary">
+              Reviewed penetration test results. Prioritized fixes for authentication flows and rate limiting.
+            </p>
+          </div>
+        </div>
+      </div>
+      <!-- /notes list -->
+
+    </div>
+    <!-- /centered content column -->
+  </div>
+</div>
