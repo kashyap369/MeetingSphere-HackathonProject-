@@ -14,10 +14,10 @@
 
       <!-- Right Section: Buttons + User Icon -->
       <div class="d-flex align-items-center gap-2 flex-wrap">
-        <button class="btn btn-primary px-4 fw-semibold" style="background-color: #9333ea; border-color: #9333ea;">
+        <button class="btn btn-primary px-4 fw-semibold" (click)="openModal()" style="background-color: #9333ea; border-color: #9333ea;">
           Create Meeting
         </button>
-        <button class="btn btn-outline-primary px-4 fw-semibold" style="border-color: #9333ea; color: #9333ea;">
+        <button class="btn btn-outline-primary px-4 fw-semibold" (click)="openJoinModal()" style="border-color: #9333ea; color: #9333ea;">
           Join Meeting
         </button>
         <button routerLink="profile" routerLinkActive="active" (click)="showNavbar = false"
@@ -75,3 +75,209 @@
   </main>
 
 </div>
+
+<!-- Create Meeting Modal -->
+<div #meetingModal class="modal fade" tabindex="-1" aria-labelledby="createMeetingLabel" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered modal-lg">
+    <div class="modal-content border-0 shadow-lg rounded-4">
+      
+      <!-- Header -->
+      <div class="modal-header border-0 bg-light py-3 rounded-top-4">
+        <div class="d-flex align-items-center w-100 justify-content-between">
+          <h5 class="modal-title fw-semibold text-dark mb-0">
+            <i class="bi bi-camera-video-fill me-2 text-primary"></i> Host a New Meeting
+          </h5>
+          <button type="button" class="btn-close" (click)="closeModal()"></button>
+        </div>
+      </div>
+
+      <!-- Body -->
+      <div class="modal-body px-4 py-3">
+        <form class="needs-validation" novalidate>
+          
+          <!-- Section 1: Basic Details -->
+          <div class="mb-4">
+            <h6 class="text-uppercase text-secondary fw-semibold mb-3 small">Meeting Details</h6>
+            <div class="row g-3">
+              <div class="col-12">
+                <label class="form-label fw-medium">Meeting Topic</label>
+                <input type="text" class="form-control rounded-3" [(ngModel)]="meeting.topic" name="topic" placeholder="Enter meeting title" required>
+              </div>
+
+              <div class="col-md-6">
+                <label class="form-label fw-medium">Meeting Type</label>
+                <div class="d-flex gap-3">
+                  <div class="form-check">
+                    <input class="form-check-input" type="radio" name="meetingType" value="instant" [(ngModel)]="meeting.type" id="instantMeeting">
+                    <label class="form-check-label" for="instantMeeting">Instant</label>
+                  </div>
+                  <div class="form-check">
+                    <input class="form-check-input" type="radio" name="meetingType" value="scheduled" [(ngModel)]="meeting.type" id="scheduledMeeting">
+                    <label class="form-check-label" for="scheduledMeeting">Scheduled</label>
+                  </div>
+                </div>
+              </div>
+
+              <div class="col-md-6">
+                <label class="form-label fw-medium">Duration</label>
+                <select class="form-select rounded-3" [(ngModel)]="meeting.duration" name="duration">
+                  <option>15 Minutes</option>
+                  <option selected>30 Minutes</option>
+                  <option>1 Hour</option>
+                  <option>2 Hours</option>
+                </select>
+              </div>
+            </div>
+
+            <div class="row g-3 mt-2" *ngIf="showScheduleFields()">
+              <div class="col-md-6">
+                <label class="form-label fw-medium">Date</label>
+                <input type="date" class="form-control rounded-3" [(ngModel)]="meeting.date" name="date">
+              </div>
+              <div class="col-md-6">
+                <label class="form-label fw-medium">Time</label>
+                <input type="time" class="form-control rounded-3" [(ngModel)]="meeting.time" name="time">
+              </div>
+            </div>
+
+            <div class="mt-3">
+              <label class="form-label fw-medium">Meeting Password (Optional)</label>
+              <input type="text" class="form-control rounded-3" [(ngModel)]="meeting.password" name="password" placeholder="e.g. 12345">
+            </div>
+          </div>
+
+          <hr class="text-muted">
+
+          <!-- Section 2: Meeting Preferences -->
+          <div class="mb-4">
+            <h6 class="text-uppercase text-secondary fw-semibold mb-3 small">Preferences</h6>
+
+            <div class="form-check form-switch">
+              <input class="form-check-input" type="checkbox" id="waitingRoom" [(ngModel)]="meeting.waitingRoom" name="waitingRoom">
+              <label class="form-check-label fw-medium" for="waitingRoom">Enable Waiting Room</label>
+            </div>
+
+            <div class="form-check form-switch mt-2">
+              <input class="form-check-input" type="checkbox" id="muteParticipants" [(ngModel)]="meeting.muteParticipants" name="muteParticipants">
+              <label class="form-check-label fw-medium" for="muteParticipants">Mute Participants on Entry</label>
+            </div>
+          </div>
+
+          <hr class="text-muted">
+
+          <!-- Section 3: Video Settings -->
+          <div>
+            <h6 class="text-uppercase text-secondary fw-semibold mb-3 small">Video Options</h6>
+            <div class="d-flex gap-4">
+              <div class="form-check">
+                <input class="form-check-input" type="checkbox" id="hostVideo" [(ngModel)]="meeting.hostVideo" name="hostVideo">
+                <label class="form-check-label fw-medium" for="hostVideo">Host Video</label>
+              </div>
+              <div class="form-check">
+                <input class="form-check-input" type="checkbox" id="participantVideo" [(ngModel)]="meeting.participantVideo" name="participantVideo">
+                <label class="form-check-label fw-medium" for="participantVideo">Participant Video</label>
+              </div>
+            </div>
+          </div>
+
+        </form>
+      </div>
+
+      <!-- Footer -->
+      <div class="modal-footer border-0 bg-light rounded-bottom-4 d-flex justify-content-end px-4 py-3">
+        <button type="button" class="btn btn-outline-secondary px-4" (click)="closeModal()">Cancel</button>
+        <button type="button" class="btn btn-primary px-4 ms-2" (click)="createMeeting()">Start Meeting</button>
+      </div>
+
+    </div>
+  </div>
+</div>
+
+
+<!-- Join Meeting Modal -->
+<div #joinMeetingModal class="modal fade" tabindex="-1" aria-labelledby="joinMeetingLabel" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered modal-md">
+    <div class="modal-content border-0 shadow-lg rounded-4">
+
+      <!-- Header -->
+      <div class="modal-header bg-light border-0 py-3 rounded-top-4">
+        <div class="d-flex align-items-center w-100 justify-content-between">
+          <h5 class="modal-title fw-semibold text-dark mb-0">
+            <i class="bi bi-people-fill me-2 text-primary"></i> Join a Meeting
+          </h5>
+          <button type="button" class="btn-close" (click)="closeJoinModal()"></button>
+        </div>
+      </div>
+
+      <!-- Body -->
+      <div class="modal-body px-4 py-3">
+        <form novalidate>
+          
+          <!-- Section 1: Meeting Info -->
+          <div class="mb-4">
+            <h6 class="text-uppercase text-secondary fw-semibold mb-3 small">Meeting Details</h6>
+
+            <div class="mb-3">
+              <label class="form-label fw-medium">Meeting ID or Link</label>
+              <input 
+                type="text" 
+                class="form-control rounded-3" 
+                [(ngModel)]="joinData.meetingId" 
+                name="meetingId" 
+                placeholder="Enter Meeting ID or Paste Link"
+                required>
+            </div>
+
+            <div class="mb-3">
+              <label class="form-label fw-medium">Your Name</label>
+              <input 
+                type="text" 
+                class="form-control rounded-3" 
+                [(ngModel)]="joinData.participantName" 
+                name="participantName" 
+                placeholder="Enter your display name"
+                required>
+            </div>
+
+            <div class="mb-3">
+              <label class="form-label fw-medium">Meeting Password (if required)</label>
+              <input 
+                type="password" 
+                class="form-control rounded-3" 
+                [(ngModel)]="joinData.password" 
+                name="password" 
+                placeholder="••••••">
+            </div>
+          </div>
+
+          <hr class="text-muted">
+
+          <!-- Section 2: Join Options -->
+          <div class="mb-3">
+            <h6 class="text-uppercase text-secondary fw-semibold mb-3 small">Join Options</h6>
+
+            <div class="form-check form-switch">
+              <input class="form-check-input" type="checkbox" id="muteAudio" [(ngModel)]="joinData.muteAudio" name="muteAudio">
+              <label class="form-check-label fw-medium" for="muteAudio">Mute My Audio</label>
+            </div>
+
+            <div class="form-check form-switch mt-2">
+              <input class="form-check-input" type="checkbox" id="turnOffVideo" [(ngModel)]="joinData.turnOffVideo" name="turnOffVideo">
+              <label class="form-check-label fw-medium" for="turnOffVideo">Turn Off My Video</label>
+            </div>
+          </div>
+        </form>
+      </div>
+
+      <!-- Footer -->
+      <div class="modal-footer border-0 bg-light rounded-bottom-4 d-flex justify-content-end px-4 py-3">
+        <button type="button" class="btn btn-outline-secondary px-4" (click)="closeJoinModal()">Cancel</button>
+        <button type="button" class="btn btn-primary px-4 ms-2" (click)="joinMeeting()">Join Meeting</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+

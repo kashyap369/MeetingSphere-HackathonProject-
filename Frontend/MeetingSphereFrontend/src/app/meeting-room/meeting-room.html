@@ -1,0 +1,120 @@
+<div class="container-fluid py-4 meeting-room-container">
+  <div class="row g-4">
+
+    <!-- Left Section -->
+    <div class="col-lg-8 d-flex flex-column gap-3">
+
+      <!-- Main Video -->
+      <div class="card border-0 shadow-sm bg-dark text-light rounded-4 position-relative overflow-hidden">
+        <!-- Recording Badge -->
+        <span class="badge bg-danger position-absolute top-0 start-0 m-3 px-3 py-2 d-flex align-items-center gap-1">
+          <lucide-angular name="CircleDot" size="14" stroke="#fff"></lucide-angular>
+          <span class="fw-semibold">Recording</span>
+        </span>
+
+        <!-- Participant Count -->
+        <span class="badge bg-light text-dark position-absolute top-0 end-0 m-3 d-flex align-items-center gap-1 rounded-pill px-3 py-2">
+          <lucide-angular name="Users" size="18"></lucide-angular>
+          <span class="fw-semibold">4</span>
+        </span>
+
+        <!-- Video Placeholder -->
+        <div class="video-area d-flex flex-column justify-content-center align-items-center py-5">
+          <lucide-angular name="Video" size="64" class="text-primary mb-3"></lucide-angular>
+          <h5 class="fw-semibold mb-1">Main Video Stream</h5>
+          <p class="text-secondary small mb-0">Your camera feed would appear here</p>
+        </div>
+      </div>
+
+      <!-- Participant Tiles -->
+      <div class="row g-3">
+        <div class="col-6 col-md-3" *ngFor="let user of participants">
+          <div class="card border-0 shadow-sm participant-tile text-center rounded-4">
+            <div class="participant-video bg-light rounded-3 d-flex align-items-center justify-content-center py-4">
+              <lucide-angular name="User" size="48" class="text-muted"></lucide-angular>
+            </div>
+            <div class="card-body p-2">
+              <p class="mb-0 fw-semibold small">{{ user.name }}</p>
+              <span class="badge rounded-pill bg-light text-dark border small mt-1">{{ user.status }}</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Control Bar -->
+      <div class="card border-0 shadow-sm rounded-4">
+        <div class="card-body d-flex justify-content-center align-items-center gap-4 py-3">
+          <button class="btn btn-light rounded-circle p-3 shadow-sm d-flex align-items-center justify-content-center">
+            <lucide-angular name="Mic" size="22" stroke="#805AD5"></lucide-angular>
+          </button>
+          <button class="btn btn-light rounded-circle p-3 shadow-sm d-flex align-items-center justify-content-center">
+            <lucide-angular name="Video" size="22" stroke="#805AD5"></lucide-angular>
+          </button>
+          <button class="btn btn-danger rounded-circle p-3 shadow-sm d-flex align-items-center justify-content-center">
+            <lucide-angular name="PhoneOff" size="22" stroke="#fff"></lucide-angular>
+          </button>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- Right Side Panel -->
+    <div class="col-lg-4">
+      <div class="card border-0 shadow-sm rounded-4 h-100">
+        <div class="card-header bg-white border-0 pb-0">
+          <ul class="nav nav-tabs border-0 justify-content-around">
+            <li class="nav-item">
+              <button class="nav-link text-dark fw-semibold active" data-bs-toggle="tab" data-bs-target="#chat">
+                <lucide-angular name="MessageSquare" size="16" class="me-1"></lucide-angular> Chat
+              </button>
+            </li>
+            <li class="nav-item">
+              <button class="nav-link text-dark fw-semibold" data-bs-toggle="tab" data-bs-target="#notes">
+                <lucide-angular name="Notebook" size="16" class="me-1"></lucide-angular> Notes
+              </button>
+            </li>
+            <li class="nav-item">
+              <button class="nav-link fw-semibold " data-bs-toggle="tab" data-bs-target="#ai">
+                <lucide-angular name="Cpu" size="18" class="me-1"></lucide-angular> AI
+              </button>
+            </li>
+          </ul>
+        </div>
+
+        <div class="card-body tab-content p-3">
+          <!-- Chat -->
+          <div class="tab-pane fade show active" id="chat">
+            <p class="text-muted small mb-0">Chat messages will appear here...</p>
+          </div>
+
+          <!-- Notes -->
+          <div class="tab-pane fade" id="notes">
+            <p class="text-muted small mb-0">Meeting notes area...</p>
+          </div>
+
+          <!-- AI -->
+          <div class="tab-pane fade" id="ai">
+            <div class="p-3 bg-light rounded-3 mb-3">
+              <h6 class="fw-semibold text-purple mb-2 d-flex align-items-center gap-1">
+                <lucide-angular name="Lightbulb" size="16"></lucide-angular> AI Live Insights
+              </h6>
+              <ul class="small mb-0 ps-3">
+                <li>Key decision: Budget allocation approved for Q4</li>
+                <li>Action item: Review contracts by Oct 15</li>
+                <li>Sentiment: Positive discussion on engineering investments</li>
+              </ul>
+            </div>
+
+            <div class="p-3 bg-secondary bg-opacity-10 rounded-3">
+              <h6 class="fw-semibold mb-2">Live Transcription</h6>
+              <p class="small mb-0 text-muted">
+                "We need to finalize the budget allocation for Q4. The proposed split looks good, but we should increase the contingency fund..."
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</div>

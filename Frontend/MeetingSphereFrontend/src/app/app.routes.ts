@@ -7,22 +7,24 @@ import { History } from './Pages/history/history';
 import { Notes } from './Pages/notes/notes';
 import { AISummary } from './Pages/aisummary/aisummary';
 import { UserProfile } from './Pages/user-profile/user-profile';
+import { MeetingRoom } from './meeting-room/meeting-room';
 
 export const routes: Routes = [
     {
-        path: '',redirectTo:'landingpage',pathMatch:'full'  
+        path: '', redirectTo: 'landingpage', pathMatch: 'full'
     },
     {
-        path: 'landingpage',component:LangingPage,
+        path: 'landingpage', component: LangingPage,
     },
     {
-        path:'',component:MainLayout,
-        children:[
-            {path:'home',component:HomePage},
-            {path:'history',component:History},
-            {path:'notes',component:Notes},
-            {path:'aisummary',component:AISummary},
-            {path:'profile',component:UserProfile},
+        path: '', component: MainLayout,
+        children: [
+            { path: 'home', component: HomePage },
+            { path: 'history', component: History },
+            { path: 'notes', component: Notes },
+            { path: 'aisummary', component: AISummary },
+            { path: 'profile', component: UserProfile },
+            { path: 'meeting/:id', component: MeetingRoom }
 
         ]
     }
